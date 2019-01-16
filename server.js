@@ -37,12 +37,10 @@ mongoose.connect(
   { useNewUrlParser: true }
 );
 
-process.env// // Routes
 // 1. At the root path, send a simple hello world message to the browser
-.app
-  .get("/", function(req, res) {
-    res.render("index");
-  });
+app.get("/", function(req, res) {
+  res.render("index");
+});
 
 // 2. At the "/all" path, display every entry in the animals collection
 app.get("/all", function(req, res) {
@@ -54,7 +52,7 @@ app.get("/all", function(req, res) {
       console.log(err.message);
     });
 });
-c;
+
 // // 3. At the "/name" path, display every entry in the animals collection, sorted by name
 // app.get("/name", function(req, res) {
 //   // Query: In our database, go to the animals collection, then "find" everything,
