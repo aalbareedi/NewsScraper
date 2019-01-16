@@ -21,6 +21,7 @@ var Article = require("./Article.js");
 //
 
 // Initialize Express
+var PORT = process.env.PORT || 3000;
 var app = express();
 
 app.use(express.static("public")); // allows public folder contents to be accessible
@@ -32,6 +33,7 @@ const BASE_URL = "https://www.aljazeera.com";
 
 var db = mongoose.connection;
 var mongoURL = process.env.MONGODB_URI || "mongodb://localhost/article_db";
+
 mongoose.connect(
   mongoURL,
   { useNewUrlParser: true }
@@ -87,8 +89,8 @@ app.get("/all", function(req, res) {
 
 getNewArticles();
 
-app.listen(3000, function() {
-  console.log("App running on port 3000!");
+app.listen(PORT, function() {
+  console.log("App running on port", PORT);
 });
 
 function getNewArticles() {
